@@ -14,6 +14,8 @@
 		2018FF2497D55959A6C3FF0D /* libPods-cairde_festival.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94154A46FE101F38EE695B05 /* libPods-cairde_festival.a */; };
 		6174E15030F85A9C1ED33FC8 /* libPods-cairde_festival-cairde_festivalTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5672E61F81E36B137FE70D /* libPods-cairde_festival-cairde_festivalTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		59099E3BA90A4B13B27ACCD1 /* Effra_Std_Lt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8A545191A034008B80C369E /* Effra_Std_Lt.ttf */; };
+		138382B3C829482BBF6B7460 /* Effra_Std_Rg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78E420FBCB6A41B68F4439F6 /* Effra_Std_Rg.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		C9B26E69EFE44AB86983DB40 /* Pods-cairde_festival.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cairde_festival.debug.xcconfig"; path = "Target Support Files/Pods-cairde_festival/Pods-cairde_festival.debug.xcconfig"; sourceTree = "<group>"; };
 		CBE10C1A5E29DA1D073EB1DA /* Pods-cairde_festival-cairde_festivalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cairde_festival-cairde_festivalTests.debug.xcconfig"; path = "Target Support Files/Pods-cairde_festival-cairde_festivalTests/Pods-cairde_festival-cairde_festivalTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		A8A545191A034008B80C369E /* Effra_Std_Lt.ttf */ = {isa = PBXFileReference; name = "Effra_Std_Lt.ttf"; path = "../assets/fonts/Effra_Std_Lt.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		78E420FBCB6A41B68F4439F6 /* Effra_Std_Rg.ttf */ = {isa = PBXFileReference; name = "Effra_Std_Rg.ttf"; path = "../assets/fonts/Effra_Std_Rg.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +126,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				5E5EEAA40C2A46558AD3AA34 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -147,6 +152,16 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		5E5EEAA40C2A46558AD3AA34 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				A8A545191A034008B80C369E /* Effra_Std_Lt.ttf */,
+				78E420FBCB6A41B68F4439F6 /* Effra_Std_Rg.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -244,6 +259,8 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				59099E3BA90A4B13B27ACCD1 /* Effra_Std_Lt.ttf in Resources */,
+				138382B3C829482BBF6B7460 /* Effra_Std_Rg.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
