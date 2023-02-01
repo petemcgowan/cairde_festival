@@ -8,10 +8,13 @@ import WhatsOnList from '../components/WhatsOnList';
 const WhatsOnStack = createStackNavigator();
 function WhatsOnScreen({}) {
   return (
-    <WhatsOnStack.Navigator>
+    <WhatsOnStack.Navigator screenOptions={{
+      headerShown: false
+    }}>
       <WhatsOnStack.Screen
         name="WhatsOnList"
         component={WhatsOnList}
+        style={styles.pageContainer}
         options={{
           headerTitle: 'Whats On',
         }}
@@ -30,3 +33,11 @@ function WhatsOnScreen({}) {
 }
 
 export default WhatsOnScreen;
+
+const styles = StyleSheet.create({
+  pageContainer: {
+      backgroundColor: "#e2d8c6",
+      // color: '#FFF',
+      fontFamily: 'Karla_300Light',
+  },
+});
