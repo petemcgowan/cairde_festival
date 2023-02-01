@@ -225,7 +225,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 10,
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: "#e2d8c6",
   },
   image: {
     width: 80,
