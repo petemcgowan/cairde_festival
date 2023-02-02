@@ -5,15 +5,20 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons/faCalendarAlt';
 import { faStar } from '@fortawesome/free-solid-svg-icons/faStar';
 import { faEllipsis } from '@fortawesome/free-solid-svg-icons/faEllipsis';
 import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
 import { faMap } from '@fortawesome/free-solid-svg-icons/faMap';
+// import Menu from './components/Menu';
 
 import HomeScreen from './screens/HomeScreen';
 import MoreScreen from './screens/MoreScreen';
+// import SignIn from './screens/SignIn';
+
+// import MapList from './components/MapList';
 import MapScreen from './screens/MapScreen';
 import WhatsOnScreen from './screens/WhatsOnScreen';
 
@@ -23,6 +28,66 @@ const greenBackgroundColor = '#1e965a';
 const offWhite = '#e2d8c6';
 
 const AppTabs = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
+
+function MapTopStack() {
+  return (
+    <View>
+      {/* <Menu /> */}
+
+      <Stack.Navigator initialRouteName="Sligo">
+        <Stack.Screen
+          name="Sligo"
+          component={MapScreen}
+          options={{
+            headerTitleStyle: {
+              fontSize: 25,
+              // fontFamily: 'Nunito_700Bold',
+            },
+            headerTitle: 'Sligo',
+            headerTitleAlign: 'center',
+          }}
+        />
+        <Stack.Screen
+          name="Bar"
+          component={MapScreen}
+          options={{
+            headerTitleStyle: {
+              fontSize: 25,
+              // fontFamily: 'Nunito_700Bold',
+            },
+            headerTitle: 'Bar',
+            headerTitleAlign: 'center',
+          }}
+        />
+        <Stack.Screen
+          name="Food"
+          component={MapScreen}
+          options={{
+            headerTitleStyle: {
+              fontSize: 25,
+              // fontFamily: 'Nunito_700Bold',
+            },
+            headerTitle: 'Food',
+            headerTitleAlign: 'center',
+          }}
+        />
+        <Stack.Screen
+          name="Monkeys"
+          component={MapScreen}
+          options={{
+            headerTitleStyle: {
+              fontSize: 25,
+              // fontFamily: 'Nunito_700Bold',
+            },
+            headerTitle: 'Monkeys',
+            headerTitleAlign: 'center',
+          }}
+        />
+      </Stack.Navigator>
+    </View>
+  );
+}
 function AppBottomStack() {
   return (
     <AppTabs.Navigator
