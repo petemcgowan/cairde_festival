@@ -1,27 +1,18 @@
 /* eslint-disable quotes */
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  FlatList,
-  Image,
-  TouchableOpacity,
-} from 'react-native';
+import { StyleSheet, Text, View, Button, FlatList, Image, TouchableOpacity } from 'react-native';
 import WhatsOnDetails from '../components/WhatsOnDetails';
 import Row from '../components/Row';
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {faChevronRight} from '@fortawesome/free-solid-svg-icons/faChevronRight';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
 
 const DATA = [
   {
     id: '1',
     name: 'Crossing Skin',
     subName: 'Junk Ensemble',
-    title:
-      'A new Cairde Sligo Arts Festival Commission created by multi-award-winning dance innovators Junk Ensemble.',
+    title: 'A new Cairde Sligo Arts Festival Commission created by multi-award-winning dance innovators Junk Ensemble.',
     subTitle: '',
     line2: '',
     image: require('../../assets/images/whatson01-crossingSkin.png'),
@@ -184,11 +175,11 @@ const DATA = [
   },
 ];
 
-export default ({navigation}) => {
-  const renderItem = ({item}) => {
+export default ({ navigation }) => {
+  const renderItem = ({ item }) => {
     function onPress() {
       console.log('WhatsOnList renderItem onPress');
-      navigation.push('WhatsOnDetails', {contact: item});
+      navigation.push('WhatsOnDetails', { whatsOnDetails: item });
     }
     return (
       <TouchableOpacity onPress={onPress} style={styles.container}>
@@ -208,12 +199,8 @@ export default ({navigation}) => {
   };
 
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <FlatList
-        data={DATA}
-        renderItem={renderItem}
-        keyExtractor={item => item.id}
-      />
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <FlatList data={DATA} renderItem={renderItem} keyExtractor={(item) => item.id} />
     </View>
   );
 };
@@ -225,7 +212,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 10,
     alignItems: 'center',
-    backgroundColor: "#e2d8c6",
+    backgroundColor: '#e2d8c6',
   },
   image: {
     width: 80,

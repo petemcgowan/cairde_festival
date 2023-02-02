@@ -1,16 +1,18 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {StyleSheet, Text, View, Button, FlatList} from 'react-native';
-import {createStackNavigator} from '@react-navigation/stack';
+import { StyleSheet, Text, View, Button, FlatList } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
 import WhatsOnDetails from '../components/WhatsOnDetails';
 import WhatsOnList from '../components/WhatsOnList';
 
 const WhatsOnStack = createStackNavigator();
 function WhatsOnScreen({}) {
   return (
-    <WhatsOnStack.Navigator screenOptions={{
-      headerShown: false
-    }}>
+    <WhatsOnStack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
       <WhatsOnStack.Screen
         name="WhatsOnList"
         component={WhatsOnList}
@@ -22,9 +24,9 @@ function WhatsOnScreen({}) {
       <WhatsOnStack.Screen
         name="WhatsOnDetails"
         component={WhatsOnDetails}
-        options={({route}) => {
+        options={({ route }) => {
           return {
-            headerTitle: `${route.params.contact.name} - ${route.params.contact.subName}`,
+            headerTitle: `${route.params.whatsOnDetails.name} - ${route.params.whatsOnDetails.subName}`,
           };
         }}
       />
@@ -36,8 +38,8 @@ export default WhatsOnScreen;
 
 const styles = StyleSheet.create({
   pageContainer: {
-      backgroundColor: "#e2d8c6",
-      // color: '#FFF',
-      fontFamily: 'Karla_300Light',
+    backgroundColor: '#e2d8c6',
+    // color: '#FFF',
+    fontFamily: 'Karla_300Light',
   },
 });
