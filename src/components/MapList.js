@@ -1,12 +1,15 @@
 /* eslint-disable quotes */
 /* eslint-disable react-native/no-inline-styles */
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { StyleSheet, Text, View, Button, FlatList, ImageBackground, TouchableOpacity, Dimensions } from 'react-native';
 import MapDetails from '../components/MapDetails';
 import Row from '../components/Row';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Menu from './Menu';
+import { AppContext } from '../App';
+import { Marker } from 'react-native-maps';
 
 const { width, height } = Dimensions.get('window');
 const offWhite = '#e2d8c6';
@@ -14,62 +17,391 @@ const offWhite = '#e2d8c6';
 const DATA = [
   {
     id: '1',
-    name: 'Crossing Skin',
-    subName: 'Junk Ensemble',
-    title: 'A new Cairde Sligo Arts Festival Commission created by multi-award-winning dance innovators Junk Ensemble.',
-    subTitle: '',
-    line2: '',
+    name: 'The Factory',
+    title: 'The Factory',
     image: require('../../assets/images/whatson01-crossingSkin.png'),
-    description:
-      'Crossing Skin is an immersive live dance installation examining the myth of the selkie and our conflicted connection to the sea. Working with an acclaimed creative team, this intimate performance combines live music, dance and a stunning visual design which explores themes of abandonment and our fascination and abuse of the sea.',
-    category: ('food', 'bar'),
-    venue: 'The Factory Performance Space',
+    description: 'Performing arts theater',
+    category: 'stages',
+    mapLocations: [
+      {
+        key: 1,
+        coordinate: {
+          latitude: 54.273920829148175,
+          longitude: -8.477752671165007,
+        },
+      },
+    ],
   },
   {
     id: '2',
-    name: 'Transcendent Documents',
-    subName: 'Outdoor Photography Exhibition in Rosses Point',
-    title: 'Transcendent Documents',
-    subTitle: 'Outdoor Photography Exhibition in Rosses Point',
+    name: 'Rosses Point',
+    title: 'Rosses Point',
     image: require('../../assets/images/whatson02-transcendentDocuments.jpeg'),
-    description: 'description',
-    category: ('food', 'bar'),
-    venue: 'Rosses Point Village Green',
+    description: 'Village Green',
+    category: 'stages',
+    mapLocations: [
+      {
+        key: 2,
+        coordinate: {
+          latitude: 54.30545521345939,
+          longitude: -8.564192261359873,
+        },
+      },
+    ],
+  },
+  {
+    id: '3',
+    name: 'Peace Park',
+    title: 'Peace Park',
+    image: require('../../assets/images/whatson03-visualArtTrail.jpeg'),
+    description: `Beautiful wooded area`,
+    category: 'food',
+    mapLocations: [
+      {
+        key: 1,
+        coordinate: {
+          latitude: 54.26952236871217,
+          longitude: -8.477210055825038,
+        },
+      },
+    ],
+  },
+  {
+    id: '4',
+    name: `Hawk's Well Theatre`,
+    title: `Hawk's Well Theatre`,
+    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    description: `Performing arts theater`,
+    category: 'stages',
+    mapLocations: [
+      {
+        key: 1,
+        coordinate: {
+          latitude: 54.26898366343254,
+          longitude: -8.477167526990044,
+        },
+      },
+    ],
+  },
+  {
+    id: '5',
+    name: 'Andersons Grill & Bar',
+    title: `Andersons Grill & Bar`,
+    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    description: `Gastropub`,
+    category: 'food',
+    mapLocations: [
+      {
+        key: 1,
+        coordinate: {
+          latitude: 54.27200399967741,
+          longitude: -8.47061388466003,
+        },
+      },
+    ],
+  },
+  {
+    id: '6',
+    name: 'Hyde Bridge Gallery',
+    title: `Hyde Bridge Gallery`,
+    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    description: `Art gallery`,
+    category: 'art',
+    mapLocations: [
+      {
+        key: 1,
+        coordinate: {
+          latitude: 54.27227036382098,
+          longitude: -8.474996475331592,
+        },
+      },
+    ],
+  },
+  {
+    id: '7',
+    name: 'The Model',
+    title: `The Model`,
+    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    description: `Art gallery`,
+    category: 'art',
+    mapLocations: [
+      {
+        key: 1,
+        coordinate: {
+          latitude: 54.26893667265477,
+          longitude: -8.477183620237989,
+        },
+      },
+    ],
+  },
+  {
+    id: '8',
+    name: 'Mullaghmore Schoolhouse',
+    title: `Mullaghmore Schoolhouse`,
+    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    description: `Small performance area`,
+    category: 'stages',
+    mapLocations: [
+      {
+        key: 1,
+        coordinate: {
+          latitude: 54.46691979148877,
+          longitude: -8.45018320874362,
+        },
+      },
+    ],
+  },
+  {
+    id: '9',
+    name: 'The Nest (Branching Out Art CLG)',
+    title: `The Nest (Branching Out Art CLG)`,
+    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    description: `Art center`,
+    category: 'food',
+    mapLocations: [
+      {
+        key: 1,
+        coordinate: {
+          latitude: 54.28475654775053,
+          longitude: -8.398742369364895,
+        },
+      },
+    ],
+  },
+  {
+    id: '10',
+    name: 'Sligo Folk Park',
+    title: `Sligo Folk Park`,
+    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    description: `Tourist attraction`,
+    category: 'stages',
+    mapLocations: [
+      {
+        key: 1,
+        coordinate: {
+          latitude: 54.129379632905575,
+          longitude: -8.398742369364895,
+        },
+      },
+    ],
+  },
+  {
+    id: '11',
+    name: 'Skreen Dromard Community Preschool',
+    title: `Skreen Dromard Community Preschool`,
+    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    description: `Preschool`,
+    category: 'stages',
+    mapLocations: [
+      {
+        key: 1,
+        coordinate: {
+          latitude: 54.239778037416556,
+          longitude: -8.678581811650076,
+        },
+      },
+    ],
+  },
+  {
+    id: '12',
+    name: 'Rathcormack National School',
+    title: `Rathcormack National School`,
+    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    description: `School`,
+    category: 'stages',
+    mapLocations: [
+      {
+        key: 1,
+        coordinate: {
+          latitude: 54.31597056597146,
+          longitude: -8.479376142330016,
+        },
+      },
+    ],
+  },
+  {
+    id: '13',
+    name: `The Yeat’s Building`,
+    title: `The Yeat’s Building`,
+    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    description: `Tourist attraction`,
+    category: 'art',
+    mapLocations: [
+      {
+        key: 1,
+        coordinate: {
+          latitude: 54.27227106896176,
+          longitude: -8.474927144174961,
+        },
+      },
+    ],
+  },
+  {
+    id: '14',
+    name: 'Sligo Airport',
+    title: `Sligo Airport`,
+    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    description: `Airport`,
+    category: 'stages',
+    mapLocations: [
+      {
+        key: 1,
+        coordinate: {
+          latitude: 54.2788940507563,
+          longitude: -8.598945486548898,
+        },
+      },
+    ],
+  },
+  {
+    id: '15',
+    name: 'Thomas Connolly Bar',
+    title: `Thomas Connolly Bar`,
+    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    description: `Heritage building`,
+    category: 'bar',
+    mapLocations: [
+      {
+        key: 1,
+        coordinate: {
+          latitude: 54.27293212656219,
+          longitude: -8.47385135582504,
+        },
+      },
+    ],
+  },
+  {
+    id: '16',
+    name: 'Hamilton Gallery',
+    title: `Hamilton Gallery`,
+    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    description: `Art Gallery`,
+    category: 'art',
+    mapLocations: [
+      {
+        key: 1,
+        coordinate: {
+          latitude: 54.27066549719921,
+          longitude: -8.461925757555013,
+        },
+      },
+    ],
+  },
+  {
+    id: '17',
+    name: 'Juniper Barn',
+    title: `Juniper Barn`,
+    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    description: `Event venue`,
+    category: 'food',
+    mapLocations: [
+      {
+        key: 1,
+        coordinate: {
+          latitude: 54.11474657960274,
+          longitude: -8.461925757555013,
+        },
+      },
+    ],
+  },
+  {
+    id: '18',
+    name: 'Woodville Farm',
+    title: `Woodville Farm`,
+    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    description: `Building`,
+    category: 'food',
+    mapLocations: [
+      {
+        key: 1,
+        coordinate: {
+          latitude: 54.2688600858389,
+          longitude: -8.513792872894859,
+        },
+      },
+    ],
+  },
+  {
+    id: '19',
+    name: `Dolly's Cottage`,
+    title: `Dolly's Cottage`,
+    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    description: `Strandhill`,
+    category: 'art',
+    mapLocations: [
+      {
+        key: 1,
+        coordinate: {
+          latitude: 54.27107315703048,
+          longitude: -8.584187330567573,
+        },
+      },
+    ],
+  },
+  {
+    id: '20',
+    name: 'Cummeen Strand',
+    title: `Cummeen Strand`,
+    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    description: `Wetland`,
+    category: 'stages',
+    mapLocations: [
+      {
+        key: 1,
+        coordinate: {
+          latitude: 54.28405901385842,
+          longitude: -8.550171589897188,
+        },
+      },
+    ],
   },
 ];
 
 export default ({ navigation }) => {
+  // console.log('MapList, filteredData:' + JSON.stringify(filteredData)); // 7
+  const [filteredData, setFilteredData] = useState([]);
+  var categoryChoice = 'stages';
+  const { userCategoryChoice } = useContext(AppContext);
+  useEffect(() => {
+    // if (!userCategoryChoice || userCategoryChoice === '') categoryChoice = 'stages';
+    console.log('MapScreen, userCategoryChoice:' + userCategoryChoice);
+    categoryChoice = userCategoryChoice;
+    console.log('MapList,categoryChoice:' + JSON.stringify(categoryChoice));
+    setFilteredData(DATA.filter((object) => object.category === categoryChoice));
+  }, [userCategoryChoice]);
+
+  console.log('MapList, filteredData:' + filteredData);
+
   const renderItem = ({ item }) => {
     console.log('MapList, renderItem' + JSON.stringify(item));
 
-    function onPress() {
+    function onPressItem() {
       console.log('MapList renderItem onPress');
       navigation.push('MapDetails', { mapDetails: item });
     }
 
     return (
-      <View>
-        <TouchableOpacity onPress={onPress} style={styles.container}>
-          <View>
-            <ImageBackground source={item.image} style={styles.image}>
-              <View style={styles.content}>
-                <Text style={styles.title}>{item.name}</Text>
-                <Text style={styles.subtitle}>{item.subName}</Text>
-                <Text style={styles.venue}>{item.venue}</Text>
-              </View>
-            </ImageBackground>
-          </View>
-          <View>
-            <FontAwesomeIcon icon={faChevronRight} size={24} color="orange" />
-          </View>
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity onPress={onPressItem} style={styles.container}>
+        <View>
+          <ImageBackground source={item.image} style={styles.image}>
+            <View style={styles.content}>
+              <Text style={styles.title}>{item.name}</Text>
+              <Text style={styles.subtitle}>{item.subName}</Text>
+              <Text style={styles.venue}>{item.venue}</Text>
+            </View>
+          </ImageBackground>
+        </View>
+        <View>
+          <FontAwesomeIcon icon={faChevronRight} size={24} color="orange" />
+        </View>
+      </TouchableOpacity>
     );
   };
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <FlatList data={DATA} renderItem={renderItem} keyExtractor={(item) => item.id} />
+      <Menu />
+      <FlatList data={filteredData} renderItem={renderItem} keyExtractor={(item) => item.id} />
     </View>
   );
 };
@@ -124,3 +456,20 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
+
+/*
+      {/* <TouchableOpacity onPress={onPress} style={styles.container}>
+        <View>
+          <ImageBackground source={item.image} style={styles.image}>
+            <View style={styles.content}>
+              <Text style={styles.title}>{item.name}</Text>
+              <Text style={styles.subtitle}>{item.subName}</Text>
+              <Text style={styles.venue}>{item.venue}</Text>
+            </View>
+          </ImageBackground>
+        </View>
+        <View>
+          <FontAwesomeIcon icon={faChevronRight} size={24} color="orange" />
+        </View>
+      </TouchableOpacity>
+*/

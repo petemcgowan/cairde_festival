@@ -1,23 +1,35 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Button, Dimensions, Pressable } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
+// import { useNavigation } from '@react-navigation/native';
 
 const { width, height } = Dimensions.get('window');
+const offWhite = '#e2d8c6';
+const greenBackgroundColor = '#1e965a';
 
 function MapDetails({ route, mapDetails, navigation }) {
-  console.log('WhatsOnDetails, mapDetails:' + mapDetails);
-  console.log('WhatsOnDetails, route.mapDetails:' + route.params.mapDetails);
+  console.log(
+    'MapDetails, route.params.mapDetails.mapLocations[0]:' + JSON.stringify(route.params.mapDetails.mapLocations[0])
+  );
+  console.log('MapDetails, route.params.mapDetails:' + JSON.stringify(route.params.mapDetails));
+  console.log('MapDetails, route.mapDetails:' + JSON.stringify(route.params.mapDetails));
+
+  const onPressBack = () => {
+    navigation.goBack();
+  };
 
   return (
     <View style={styles.containerStyle}>
-      <Text>MapDetails</Text>
+      {route.params.mapDetails.mapLocations.map((mapDetails) => {
+        return <Text key={mapDetails.key}> {JSON.stringify(mapDetails)}</Text>;
+      })}
       <MapView
         style={styles.mapStyle}
         initialRegion={{
-          latitude: 54.26893667265477,
-          longitude: -8.477183620237989,
-          latitudeDelta: 0.2922,
-          longitudeDelta: 0.2421,
+          latitude: route.params.mapDetails.mapLocations[0].latitude,
+          longitude: route.params.mapDetails.mapLocations[0].longitude,
+          latitudeDelta: 0.02922,
+          longitudeDelta: 0.02421,
         }}
       >
         <Marker
@@ -200,6 +212,11 @@ function MapDetails({ route, mapDetails, navigation }) {
           description="Wetland"
         />
       </MapView>
+      <View style={styles.backButtonView}>
+        <Pressable onPress={() => onPressBack()}>
+          <Text style={styles.backButton}>Back</Text>
+        </Pressable>
+      </View>
     </View>
   );
 }
@@ -208,7 +225,7 @@ const styles = {
   pageContainer: {
     backgroundColor: '#e2d8c6',
     // color: '#FFF',
-    fontFamily: 'Karla_300Light',
+    // fontFamily: 'Karla_300Light',
   },
   containerStyle: {
     flex: 1,
@@ -220,13 +237,28 @@ const styles = {
   },
 
   mapStyle: {
-    left: 20,
+    flex: 0.95,
+    left: 0,
     right: 0,
     width: '90%',
-    height: '90%',
-    top: 20,
+    height: '88%',
+    top: 0,
     bottom: 0,
-    position: 'absolute',
+    // position: 'absolute',
+  },
+  backButtonView: {
+    alignItems: 'center',
+    border: 0,
+    borderRadius: 40,
+    backgroundColor: greenBackgroundColor,
+    fontSize: 28,
+    // margin: 5,
+    marginTop: 12,
+    padding: 5,
+  },
+  backButton: {
+    color: offWhite,
+    fontSize: 28,
   },
 };
 
