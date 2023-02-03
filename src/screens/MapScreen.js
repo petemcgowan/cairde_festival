@@ -1,17 +1,27 @@
 /* eslint-disable react-native/no-inline-styles */
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { StyleSheet, Text, View, Button, FlatList, Dimensions } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import MapDetails from '../components/MapDetails';
 import MapList from '../components/MapList';
 // import Menu from '../components/Menu';
+import { AppContext } from '../App';
 
 const { width, height } = Dimensions.get('window');
 
 const MapStack = createStackNavigator();
 
-function MapScreen({}) {
-  console.log('MapScreen enter');
+function MapScreen({ route }) {
+  const { userCategoryChoice, setUserCategoryChoice } = useContext(AppContext);
+
+  useEffect(() => {
+    console.log('MapScreen enter');
+    console.log('MapScreen, route.params:' + JSON.stringify(route.params));
+    if (route.params) {
+      console.log('Setting Context userCategoryChoice to' + route.params.userCategoryChoice);
+      setUserCategoryChoice(route.params.userCategoryChoice);
+    }
+  }, [route.params]);
 
   return (
     <MapStack.Navigator

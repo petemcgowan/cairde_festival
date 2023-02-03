@@ -6,40 +6,68 @@ const Menu = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.menuContainer}>
-      <TouchableOpacity style={styles.buttonStyle} onPress={() => navigation.navigate('Sligo')}>
-        <Text>Sligo</Text>
+      <TouchableOpacity
+        style={styles.buttonStyle}
+        onPress={() =>
+          navigation.navigate('Stages', {
+            userCategoryChoice: 'stages',
+          })
+        }
+      >
+        <Text>Stages</Text>
         <Image
-          style={styles.iconStytle}
+          style={styles.iconStyle}
           source={{
             uri: 'https://img.icons8.com/stickers/90/000000/training.png',
           }}
         />
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.buttonStyle} onPress={() => navigation.navigate('Bar')}>
+      <TouchableOpacity
+        style={styles.buttonStyle}
+        onPress={() =>
+          navigation.navigate('Bar', {
+            userCategoryChoice: 'bar',
+          })
+        }
+      >
         <Text>Bars</Text>
         <Image
-          style={styles.iconStytle}
+          style={styles.iconStyle}
           source={{
             uri: 'https://img.icons8.com/stickers/100/000000/conference.png',
           }}
         />
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.buttonStyle} onPress={() => navigation.navigate('Food')}>
+      <TouchableOpacity
+        style={styles.buttonStyle}
+        onPress={() =>
+          navigation.navigate('Food', {
+            userCategoryChoice: 'food',
+          })
+        }
+      >
         <Text>Food</Text>
         <Image
-          style={styles.iconStytle}
+          style={styles.iconStyle}
           source={{
             uri: 'https://img.icons8.com/stickers/100/000000/about.png',
           }}
         />
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.buttonStyle} onPress={() => navigation.navigate('Monkeys')}>
-        <Text>Monkeys</Text>
+      <TouchableOpacity
+        style={styles.buttonStyle}
+        onPress={() =>
+          navigation.navigate('Art', {
+            userCategoryChoice: 'art',
+          })
+        }
+      >
+        <Text>Art</Text>
         <Image
-          style={styles.iconStytle}
+          style={styles.iconStyle}
           source={{
             uri: 'https://img.icons8.com/stickers/100/000000/phone-office.png',
           }}
@@ -57,7 +85,7 @@ const styles = StyleSheet.create({
   textStyle: {
     textTransform: 'uppercase',
   },
-  iconStytle: {
+  iconStyle: {
     width: '100%',
     height: 50,
     aspectRatio: 1,
