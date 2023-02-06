@@ -1,9 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, Image, FlatList, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Button, Image, FlatList, TouchableOpacity, ScrollView, Pressable } from 'react-native';
 
-export default ({ route, whatsOnDetails, onPress }) => {
+const offWhite = '#e2d8c6';
+const greenBackgroundColor = '#1e965a';
+
+export default ({ route, whatsOnDetails, onPress, navigation }) => {
   console.log('WhatsOnDetails, whatsOnDetails:' + whatsOnDetails);
   console.log('WhatsOnDetails, route.whatsOnDetails:' + route.params.whatsOnDetails);
+
+  const onPressBack = () => {
+    navigation.goBack();
+  };
+
   return (
     <ScrollView style={styles.item}>
       <View>
@@ -12,6 +20,11 @@ export default ({ route, whatsOnDetails, onPress }) => {
       <Text style={styles.title}>{route.params.whatsOnDetails.title}</Text>
       <Text style={styles.line2}>{route.params.whatsOnDetails.subTitle}</Text>
       <Text style={styles.description}>{route.params.whatsOnDetails.description}</Text>
+      <View style={styles.backButtonView}>
+        <Pressable onPress={() => onPressBack()}>
+          <Text style={styles.backButton}>Back</Text>
+        </Pressable>
+      </View>
     </ScrollView>
   );
 };
@@ -29,6 +42,20 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 32,
+  },
+  backButtonView: {
+    alignItems: 'center',
+    border: 0,
+    borderRadius: 40,
+    backgroundColor: greenBackgroundColor,
+    fontSize: 28,
+    margin: 5,
+    padding: 3,
+  },
+  backButton: {
+    color: offWhite,
+
+    fontSize: 28,
   },
 });
 
