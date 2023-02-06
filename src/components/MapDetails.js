@@ -3,9 +3,12 @@ import { StyleSheet, Text, View, Button, Dimensions, Pressable } from 'react-nat
 import MapView, { Marker } from 'react-native-maps';
 // import { useNavigation } from '@react-navigation/native';
 
-const { width, height } = Dimensions.get('window');
 const offWhite = '#e2d8c6';
 const greenBackgroundColor = '#1e965a';
+const { width, height } = Dimensions.get('window');
+const ASPECT_RATIO = width / height;
+const LATITUDE_DELTA = 0.0922;
+const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
 function MapDetails({ route, mapDetails, navigation }) {
   console.log(
@@ -13,6 +16,20 @@ function MapDetails({ route, mapDetails, navigation }) {
   );
   console.log('MapDetails, route.params.mapDetails:' + JSON.stringify(route.params.mapDetails));
   console.log('MapDetails, route.mapDetails:' + JSON.stringify(route.params.mapDetails));
+  console.log('MapDetails, ASPECT_RATIO:' + ASPECT_RATIO);
+  console.log('MapDetails, LONGITUDE_DELTA:' + LONGITUDE_DELTA);
+  console.log(
+    'MapDetails, route.params.mapDetails.mapLocations[0].longitude:' +
+      JSON.stringify(route.params.mapDetails.mapLocations[0].coordinate.longitude)
+  );
+  console.log(
+    'MapDetails, route.params.mapDetails.mapLocations[0].latitude:' +
+      route.params.mapDetails.mapLocations[0].coordinate.latitude
+  );
+  console.log(
+    'MapDetails, route.params.mapDetails.mapLocations[0].longitude:' +
+      JSON.stringify(route.params.mapDetails.mapLocations)
+  );
 
   const onPressBack = () => {
     navigation.goBack();
@@ -26,10 +43,14 @@ function MapDetails({ route, mapDetails, navigation }) {
       <MapView
         style={styles.mapStyle}
         initialRegion={{
-          latitude: route.params.mapDetails.mapLocations[0].latitude,
-          longitude: route.params.mapDetails.mapLocations[0].longitude,
-          latitudeDelta: 0.02922,
-          longitudeDelta: 0.02421,
+          // latitude: 54.26893667265477,
+          // longitude: -8.477183620237989,
+          // latitudeDelta: 0.2922,
+          // longitudeDelta: 0.2421,
+          latitude: route.params.mapDetails.mapLocations[0].coordinate.latitude,
+          longitude: route.params.mapDetails.mapLocations[0].coordinate.longitude,
+          latitudeDelta: LATITUDE_DELTA,
+          longitudeDelta: LONGITUDE_DELTA,
         }}
       >
         <Marker

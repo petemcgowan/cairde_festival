@@ -19,7 +19,7 @@ const DATA = [
     id: '1',
     name: 'The Factory',
     title: 'The Factory',
-    image: require('../../assets/images/whatson01-crossingSkin.png'),
+    image: require('../../assets/images/map/Map01_The_Factory_Sligo.jpg'),
     description: 'Performing arts theater',
     category: 'stages',
     mapLocations: [
@@ -36,7 +36,7 @@ const DATA = [
     id: '2',
     name: 'Rosses Point',
     title: 'Rosses Point',
-    image: require('../../assets/images/whatson02-transcendentDocuments.jpeg'),
+    image: require('../../assets/images/map/Map02_Rosses_Point.jpg'),
     description: 'Village Green',
     category: 'stages',
     mapLocations: [
@@ -53,7 +53,7 @@ const DATA = [
     id: '3',
     name: 'Peace Park',
     title: 'Peace Park',
-    image: require('../../assets/images/whatson03-visualArtTrail.jpeg'),
+    image: require('../../assets/images/map/Map03_PeacePark.jpg'),
     description: `Beautiful wooded area`,
     category: 'food',
     mapLocations: [
@@ -70,7 +70,7 @@ const DATA = [
     id: '4',
     name: `Hawk's Well Theatre`,
     title: `Hawk's Well Theatre`,
-    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    image: require('../../assets/images/map/Map04_HawksWellTheatre.jpg'),
     description: `Performing arts theater`,
     category: 'stages',
     mapLocations: [
@@ -87,7 +87,7 @@ const DATA = [
     id: '5',
     name: 'Andersons Grill & Bar',
     title: `Andersons Grill & Bar`,
-    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    image: require('../../assets/images/map/Map05_Andersons.jpg'),
     description: `Gastropub`,
     category: 'food',
     mapLocations: [
@@ -104,7 +104,7 @@ const DATA = [
     id: '6',
     name: 'Hyde Bridge Gallery',
     title: `Hyde Bridge Gallery`,
-    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    image: require('../../assets/images/map/Map06_HydeBridgeGallery2.jpg'),
     description: `Art gallery`,
     category: 'art',
     mapLocations: [
@@ -121,7 +121,7 @@ const DATA = [
     id: '7',
     name: 'The Model',
     title: `The Model`,
-    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    image: require('../../assets/images/map/Map07_TheModel.jpg'),
     description: `Art gallery`,
     category: 'art',
     mapLocations: [
@@ -138,7 +138,7 @@ const DATA = [
     id: '8',
     name: 'Mullaghmore Schoolhouse',
     title: `Mullaghmore Schoolhouse`,
-    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    image: require('../../assets/images/map/Map08_MullaghmoreSchoolhouse.png'),
     description: `Small performance area`,
     category: 'stages',
     mapLocations: [
@@ -155,7 +155,7 @@ const DATA = [
     id: '9',
     name: 'The Nest (Branching Out Art CLG)',
     title: `The Nest (Branching Out Art CLG)`,
-    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    image: require('../../assets/images/map/Map09_The_Nest2.jpeg'),
     description: `Art center`,
     category: 'food',
     mapLocations: [
@@ -172,7 +172,7 @@ const DATA = [
     id: '10',
     name: 'Sligo Folk Park',
     title: `Sligo Folk Park`,
-    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    image: require('../../assets/images/map/Map10_SligoFolkPark.jpeg'),
     description: `Tourist attraction`,
     category: 'stages',
     mapLocations: [
@@ -189,7 +189,7 @@ const DATA = [
     id: '11',
     name: 'Skreen Dromard Community Preschool',
     title: `Skreen Dromard Community Preschool`,
-    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    image: require('../../assets/images/map/Map11_Dromard.jpeg'),
     description: `Preschool`,
     category: 'stages',
     mapLocations: [
@@ -206,7 +206,7 @@ const DATA = [
     id: '12',
     name: 'Rathcormack National School',
     title: `Rathcormack National School`,
-    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    image: require('../../assets/images/map/Map12_Rathcormac.jpeg'),
     description: `School`,
     category: 'stages',
     mapLocations: [
@@ -223,7 +223,7 @@ const DATA = [
     id: '13',
     name: `The Yeat’s Building`,
     title: `The Yeat’s Building`,
-    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    image: require('../../assets/images/map/Map13_SligoYeatsBuilding.jpeg'),
     description: `Tourist attraction`,
     category: 'art',
     mapLocations: [
@@ -240,7 +240,7 @@ const DATA = [
     id: '14',
     name: 'Sligo Airport',
     title: `Sligo Airport`,
-    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    image: require('../../assets/images/map/Map14_SligoAirport.jpeg'),
     description: `Airport`,
     category: 'stages',
     mapLocations: [
@@ -257,7 +257,7 @@ const DATA = [
     id: '15',
     name: 'Thomas Connolly Bar',
     title: `Thomas Connolly Bar`,
-    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    image: require('../../assets/images/map/Map15_ThomasConnolly.jpeg'),
     description: `Heritage building`,
     category: 'bar',
     mapLocations: [
@@ -274,7 +274,7 @@ const DATA = [
     id: '16',
     name: 'Hamilton Gallery',
     title: `Hamilton Gallery`,
-    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    image: require('../../assets/images/map/Map16_HamiltonGallery.jpeg'),
     description: `Art Gallery`,
     category: 'art',
     mapLocations: [
@@ -291,7 +291,7 @@ const DATA = [
     id: '17',
     name: 'Juniper Barn',
     title: `Juniper Barn`,
-    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    image: require('../../assets/images/map/Map17_JuniperBarn2.jpg'),
     description: `Event venue`,
     category: 'food',
     mapLocations: [
@@ -308,7 +308,7 @@ const DATA = [
     id: '18',
     name: 'Woodville Farm',
     title: `Woodville Farm`,
-    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    image: require('../../assets/images/map/Map18_WoodvilleFarm.jpeg'),
     description: `Building`,
     category: 'food',
     mapLocations: [
@@ -325,7 +325,7 @@ const DATA = [
     id: '19',
     name: `Dolly's Cottage`,
     title: `Dolly's Cottage`,
-    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    image: require('../../assets/images/map/Map19_DollysCottage.jpeg'),
     description: `Strandhill`,
     category: 'art',
     mapLocations: [
@@ -342,7 +342,7 @@ const DATA = [
     id: '20',
     name: 'Cummeen Strand',
     title: `Cummeen Strand`,
-    image: require('../../assets/images/whatson04-cairdeInThePark.jpeg'),
+    image: require('../../assets/images/map/Map20_CumeenStrand.jpeg'),
     description: `Wetland`,
     category: 'stages',
     mapLocations: [
@@ -418,7 +418,7 @@ const styles = StyleSheet.create({
   image: {
     // flex: 0.5,
     width: width,
-    height: 340,
+    height: 200,
     borderRadius: 40,
     marginRight: 10,
   },
@@ -456,20 +456,3 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
-
-/*
-      {/* <TouchableOpacity onPress={onPress} style={styles.container}>
-        <View>
-          <ImageBackground source={item.image} style={styles.image}>
-            <View style={styles.content}>
-              <Text style={styles.title}>{item.name}</Text>
-              <Text style={styles.subtitle}>{item.subName}</Text>
-              <Text style={styles.venue}>{item.venue}</Text>
-            </View>
-          </ImageBackground>
-        </View>
-        <View>
-          <FontAwesomeIcon icon={faChevronRight} size={24} color="orange" />
-        </View>
-      </TouchableOpacity>
-*/
