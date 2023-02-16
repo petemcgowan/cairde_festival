@@ -21,7 +21,6 @@ const DATA = [
         subName: 'Junk Ensemble',
         title: 'A new Cairde Sligo Arts Festival Commission created by multi-award-winning dance innovators Junk Ensemble.',
         subTitle: '',
-        line2: '',
         image: require('../../assets/images/whatson/whatson01-crossingSkin.png'),
         description:
             'Crossing Skin is an immersive live dance installation examining the myth of the selkie and our conflicted connection to the sea. Working with an acclaimed creative team, this intimate performance combines live music, dance and a stunning visual design which explores themes of abandonment and our fascination and abuse of the sea.',
@@ -35,16 +34,17 @@ const DATA = [
         title: 'Transcendent Documents',
         subTitle: 'Outdoor Photography Exhibition in Rosses Point',
         image: require('../../assets/images/whatson/whatson02-transcendentDocuments.jpeg'),
-        description: 'description',
+        description: `The American photographer Walker Evans (1903-1975) first referred to photographs as 'transcendent documents.' Evans believed that photographs could have recognisable content, resonance, and cultural meaning and still stand for or evoke a state of mind. The exhibition of Transcendent Documents will feature four Irish photographers working with images using a sense of place to evoke a particular state of mind.
+
+        Cairde Sligo Arts Festival has invited photographers who have made photographic bodies of work in the North-West and West, including Jill Quigley (Co. Donegal), Linda Brownlee (Co. Mayo), Kenneth O’Halloran (Co. Clare) and Yvette Monahan (Co. Sligo)`,
         grouping: ('one', 'two', 'three'),
         venue: 'Rosses Point Village Green',
     },
     {
         id: '3',
         name: 'Visual Art Trail',
-        subName: 'A Visual Art Trail through Sligo town centre',
         title: 'Visual Art Trail',
-        subTitle: '',
+        subTitle: 'A Visual Art Trail through Sligo town centre',
         image: require('../../assets/images/whatson/whatson03-visualArtTrail.jpeg'),
         description: `With this second iteration of the Visual Artist Trail we have chosen six artists both local and international to explore themes of how our surroundings can influence our practice. Whether that be our environment, people around us or even the news that we digest - It can all have an impact on the art we create.
 
@@ -55,7 +55,6 @@ const DATA = [
     {
         id: '4',
         name: 'Cairde in the Park',
-        subName: '',
         title: 'We are delighted to be back in Sligo’s Peace Park for a brand new and extended Cairde in the Park - Sligo’s favourite family day out (formerly known as Park Fest).',
         subTitle: 'subTitle',
         image: require('../../assets/images/whatson/whatson04-cairdeInThePark.jpeg'),
@@ -72,20 +71,20 @@ const DATA = [
     {
         id: '5',
         name: 'Derek Gripper Guitar workshop',
-        subName: '',
         title: '',
         subTitle: '',
         image: require('../../assets/images/whatson/whatson05-derekGripper.jpeg'),
-        description: '',
+        description: `Derek Gripper is known for his groundbreaking technique for evoking the West African kora on the guitar. He has transcribed the complex music of Malian kora player Toumani Diabaté and infuses his interpretations of Bach’s music with lessons from the oral traditions of Africa. He has performed with Toumani Diabaté’s Symmetric Orchestra and classical guitar legend John Williams, and tours worldwide.
+
+        As a teacher Gripper combines the techniques of oral tradition learning with the pedagogy of Maria Montessori and FM Alexander and teaches workshops online and in person as well as hosting a global guitar group online with nine lessons a week and numerous online courses.`,
         grouping: ('one', 'two', 'three'),
         venue: `Hawk's Well Theatre`,
     },
     {
         id: '6',
         name: 'Basork',
-        subName: 'Followed by DJ Cantina Bop',
         title: '',
-        subTitle: '',
+        subTitle: 'Followed by DJ Cantina Bop',
         image: require('../../assets/images/whatson/whatson06-Basork.jpeg'),
         description: '',
         grouping: ('one', 'two', 'three'),
@@ -94,9 +93,8 @@ const DATA = [
     {
         id: '7',
         name: 'In a Contrary Place',
-        subName: 'Ruth Clinton & Niamh Moriarty',
         title: '',
-        subTitle: '',
+        subTitle: 'Ruth Clinton & Niamh Moriarty',
         image: require('../../assets/images/whatson/whatson07-inAContraryPlace.jpeg'),
         description: '',
         grouping: ('one', 'two', 'three'),

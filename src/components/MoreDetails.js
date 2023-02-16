@@ -5,6 +5,7 @@ import {
     StyleSheet,
     TouchableOpacity,
     Linking,
+    Dimensions,
 } from 'react-native'
 
 const offWhite = '#e2d8c6'
@@ -15,6 +16,7 @@ export const PinkSeparator = () => <View style={styles.pinkSeparator} />
 export const GreenSeparator = () => <View style={styles.greenSeparator} />
 
 const greenBackgroundColor = '#1e965a'
+const { height } = Dimensions.get('window')
 
 function MoreDetails({ route, navigation }) {
     const onPressBack = () => {
@@ -31,7 +33,7 @@ function MoreDetails({ route, navigation }) {
             <ScrollView style={{ backgroundColor: offWhite }} key={{}}>
                 {route.params.moreDetails.qaList.map((qaItem) => {
                     return route.params.moreDetails.linkTree ? (
-                        <View key={qaItem.key}>
+                        <View key={qaItem.id}>
                             <TouchableOpacity
                                 onPress={async () => {
                                     await Linking.canOpenURL(qaItem.answer)
@@ -44,7 +46,7 @@ function MoreDetails({ route, navigation }) {
                             </TouchableOpacity>
                         </View>
                     ) : (
-                        <View key={qaItem.key}>
+                        <View key={qaItem.id}>
                             <Text
                                 style={[
                                     styles.questionTextStyle,
@@ -141,7 +143,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         right: 0,
-        bottom: 180,
+        // bottom: 180,
+        bottom: height * 0.1,
         // top: height - 250,
     },
     floatingButton: {

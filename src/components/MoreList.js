@@ -45,46 +45,46 @@ const generalStyleData = [
         icon: faInfo,
         qaList: [
             {
-                key: 'Q1',
+                id: 'Q1',
                 question: 'Where can I find more information about tickets?',
                 answer: `Please visit our <How to Book>TODO LINK page for all information regarding purchasing and collecting tickets. `,
             },
             {
-                key: 'Q2',
+                id: 'Q2',
                 question: 'Where can I purchase bus tickets?',
                 answer: `Bus Éireann’s Expressway is delighted to be official travel partner for All Together Now again in 2022. Regular services will be available from Waterford Bus Station to Curraghmore House each day from Friday 29th July to Monday 1st August. In addition to this, direct non-stop services from Dublin and Cork city centres will operate to the festival on Friday 29th July with return journeys on Monday 1st August. Bus tickets for all services will go on sale in June and early bird discounts will apply.
 
         Bus tickets available here - https://www.expressway.ie/service-news/all-together-now-2022`,
             },
             {
-                key: 'Q3',
+                id: 'Q3',
                 question: 'Do you have any free events?',
                 answer: `The Festival is proud to offer many events free of charge. This includes all street spectacles and visual art galleries. Free events are noted in the Festival programme.`,
             },
             {
-                key: 'Q4',
+                id: 'Q4',
                 question: 'Do you have any family-friendly events?',
                 answer: `Cairde includes various family-friendly offerings from year to year in genres ranging from street spectacle to visual arts and from theatre to First Thought Talks. Please refer to our Family Friendly page for more information.`,
             },
             {
-                key: 'Q5',
+                id: 'Q5',
                 question:
                     'Do I need a COVID vaccine / recovery pass or antigen test?',
                 answer: `Covid-19 passes and antigen testing do not apply to outdoor events in Republic of Ireland.`,
             },
             {
-                key: 'Q6',
+                id: 'Q6',
                 question: 'I have a ticket query. Who should I contact?',
                 answer: `Please contact Ticketmaster directly on 0818 903 001 or via the ‘Help Chat’ tab on www.ticketmaster.ie and they will be happy to advise you. `,
             },
             {
-                key: 'Q7',
+                id: 'Q7',
                 question:
                     'How do I know if this show is appropriate for my children?',
                 answer: `Some Cairde shows may be unsuitable for young children. Visit the show’s event page on our website to learn more, or refer to the official programme. `,
             },
             {
-                key: 'Q8',
+                id: 'Q8',
                 question: 'Can tickets be refunded or exchanged?',
                 answer: `We regret that 2022 tickets cannot be exchanged or refunded after purchase.
 
@@ -99,24 +99,24 @@ const generalStyleData = [
         If you purchased your 2020 / 2021 ticket from a Ticketmaster physical outlet and are unable to attend the new dates, please email us at hello@alltogethernow.ie    `,
             },
             {
-                key: 'Q9',
+                id: 'Q9',
                 question: 'Are all venues fully accessible?',
                 answer: `The majority of Cairde venues are fully accessible, however a few do have limited access. Please visit our Accessibility page to learn more.`,
             },
             {
-                key: 'Q10',
+                id: 'Q10',
                 question:
                     'I know this show is sold out, but surely there’s room for one more?',
                 answer: `If a show has sold out, unfortunately that means that the venue is at capacity and there are no more tickets available.`,
             },
             {
-                key: 'Q11',
+                id: 'Q11',
                 question:
                     'Where can I submit my work for consideration in the Festival?',
                 answer: `The deadline for Festival submissions is usually at the end of the previous calendar year. Please check our Take Part page for updates.`,
             },
             {
-                key: 'Q12',
+                id: 'Q12',
                 question:
                     'Where can I buy Festival merchandise and gift vouchers?',
                 answer: `Official merchandise is available for purchase during the Festival at the Festival Hub (Market Street) and at select shows, as well as on our <online merchandise store> TODO LINK. Gift vouchers <are available here in €25, €50, €100 and €250 increments.> TODO LINK`,
@@ -134,49 +134,59 @@ const generalStyleData = [
         icon: faNewspaper,
         qaList: [
             {
+                id: 'M1',
                 question:
                     ' Irish Independent: Packed Programme For Sligos Cairde Arts Festival',
                 answer: `https://www.independent.ie/regionals/sligochampion/news/packed-programme-for-sligos-cairde-arts-festival-2022-41769951.html`,
             },
             {
+                id: 'M2',
                 question:
                     ' Irish Independent: Cairde Sligo Arts Festival Is In Full Swing With Entertainment For All Ages',
                 answer: ` https://www.independent.ie/regionals/sligochampion/news/cairde-sligo-arts-festival-is-in-full-swing-with-entertainment-for-all-ages-41816377.html`,
             },
             {
+                id: 'M3',
                 question: 'Sligo Weekender: Cairde Close Party',
                 answer: `http://sligoweekender.ie/2016/07/06/cairde-close-party/`,
             },
             {
+                id: 'M4',
                 question:
                     'Tripadvisor: Cairde Sligo Arts Festival Starts This Weekend',
                 answer: `https://www.tripadvisor.ie/ShowTopic-g186635-i1128-k14009631-Cairde_Sligo_Arts_Festival_starts_this_weekend-Sligo_County_Sligo_Western_Ireland.html`,
             },
             {
+                id: 'M5',
                 question:
                     'Sligo Weekender: Cairde Line up Hits all the Right Notes',
                 answer: `http://sligoweekender.ie/2016/06/22/cairde-sligo-arts-festival-music-line-up-hits-all-the-right-notes/`,
             },
             {
+                id: 'M6',
                 question:
                     'Irish Independent: Experiences and Fun for all Ages at Cairde',
                 answer: `https://www.independent.ie/regionals/sligochampion/news/experiences-and-fun-for-all-ages-at-cairde-arts-festival-41740270.html`,
             },
             {
+                id: 'M7',
                 question:
                     'Irish Independent: Siomha and Nava link-up in Rich Double Bill At Cairde',
                 answer: `https://www.independent.ie/regionals/sligochampion/news/siomha-and-nava-link-up-in-rich-double-bill-at-cairde-fest-41798536.html`,
             },
             {
+                id: 'M8',
                 question: 'RTE: Cairde: Culture, Connection and Craic',
                 answer: ` https://www.rte.ie/culture/2022/0627/1306334-cairde-sligo-arts-festival-culture-connection-and-craic/`,
             },
             {
+                id: 'M9',
                 question:
                     'Irish Independent: Countdown is on as Cairde starts this weekend',
                 answer: `https://www.independent.ie/regionals/sligochampion/news/countdown-is-on-as-cairde-sligo-arts-festival-starts-this-weekend-41794722.html`,
             },
             {
+                id: 'M10',
                 question:
                     'Irish Independent: New Artistic Works for Cairde Arts Fest',
                 answer: `https://www.independent.ie/regionals/sligochampion/news/new-artistic-works-for-cairde-arts-fest-41740157.html`,
@@ -199,6 +209,7 @@ const generalStyleData = [
         icon: faLeaf,
         qaList: [
             {
+                id: 'S1',
                 question: 'Sustainability Policy',
                 answer: `When we launched All Together Now in 2018, we wanted to take the opportunity to create a sustainable and environmentally friendly festival where we could set our own standards. With sustainability at the core of our ethos, we are passionate about creating and promoting the message as best we can.
 
@@ -209,6 +220,7 @@ const generalStyleData = [
         We can’t wait to welcome you back to the gorgeous Curraghmore Estate this year – thank you for your support. `,
             },
             {
+                id: 'S2',
                 question: 'What You Can Do',
                 answer: `{'\u2022'}Carpool or use Public Transport – How are you travelling to the festival? Can you carpool or take public transport?
 
@@ -233,6 +245,7 @@ const generalStyleData = [
         Love the land, respect your neighbours, and have fun!  `,
             },
             {
+                id: 'S3',
                 question: 'What We Are Doing',
                 answer: `{'\u2022'}Water – This year we are installing more free water drinking stations throughout the festival in the campsites, arenas and backstage. We highly encourage you and our staff to bring your own reusable water bottle to the festival.
 
@@ -246,7 +259,7 @@ const generalStyleData = [
 
         {'\u2022'}Waste Management – Our festival is zero waste to landfill. Our bins are clearly signposted, helping our audiences and staff to separate their waste correctly, to ensure maximum recycling and recovery downstream. We are working on reducing the festival’s outputs as much as possible and to do so, are conducting an audit of our waste outputs this year.
 
-        {'\u2022'}Public Transport - We partner with Bus Eireann to reduce the traffic volume and encourage the use of public transport. Bus Eireann will be providing return bus services from Dublin, Cork and Waterford. Bus Eireann are also providing a shuttle service from their Waterford Bus terminal, across the road from Waterford Plunkett Station. Those wishing to travel via Irish Rail can do so using this service. Bus times and tickets will be available at a later date. If public transport isn’t an option for you, we highly encourage carpooling. `,
+        {'\u2022'}Public Transport - We partner with Bus Eireann to reduce the traffic volume and encourage the use of public transport. Bus Eireann will be providing return bus services from Dublin, Cork and Waterford. Bus Eireann are also providing a shuttle service from their Waterford Bus terminal, across the road from Waterford Plunkett Station. Those wishing to travel via Irish Rail can do so using this service. Bus times and tickets will be available at a later date. If public transport isn’t an option for you, we highly encourage carpooling. `,
             },
         ],
     },
