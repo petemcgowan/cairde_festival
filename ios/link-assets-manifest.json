@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Effra_Std_Lt.ttf",
+      "sha1": "4fb4f7de0fadbbc431b1f82bef020832a784901d"
+    },
+    {
+      "path": "assets/fonts/Effra_Std_Rg.ttf",
+      "sha1": "af7f7a9cf705e5f31e720e857c1b0410e70d627a"
+    }
+  ]
+}
