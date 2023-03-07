@@ -374,14 +374,9 @@ const MapList = ({ navigation }) => {
         )
     }, [userCategoryChoice])
 
-    console.log('MapList, filteredData:' + filteredData)
-
     const renderItem = ({ item }) => {
-        console.log('MapList, renderItem' + JSON.stringify(item))
-
         function onPressItem() {
-            console.log('MapList renderItem onPress')
-            navigation.push('MapDetails', { mapDetails: item })
+            navigation.navigate('MapDetails', { mapDetails: item })
         }
 
         return (
@@ -390,8 +385,8 @@ const MapList = ({ navigation }) => {
                     <ImageBackground source={item.image} style={styles.image}>
                         <View style={styles.content}>
                             <Text style={styles.title}>{item.name}</Text>
-                            <Text style={styles.subtitle}>{item.subName}</Text>
-                            <Text style={styles.venue}>{item.venue}</Text>
+                            {/* <Text style={styles.subtitle}>{item.subName}</Text> */}
+                            {/* <Text style={styles.venue}>{item.venue}</Text> */}
                         </View>
                     </ImageBackground>
                 </View>
@@ -439,8 +434,10 @@ const styles = StyleSheet.create({
         marginRight: 10,
     },
     title: {
-        fontSize: 18,
-        fontWeight: '600',
+        fontSize: 27,
+        // fontWeight: '600',
+        textAlign: 'right',
+        fontFamily: 'Poppins-Regular',
         // color: '#3a3a3a',
         color: offWhite,
     },
@@ -461,7 +458,7 @@ const styles = StyleSheet.create({
         // width: 1,
         fontSize: 16,
         marginTop: 2,
-        color: offWhite,
+        // color: offWhite,
     },
     separator: {
         backgroundColor: '#ececec',

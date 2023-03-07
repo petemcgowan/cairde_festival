@@ -19,9 +19,9 @@ const LATITUDE_DELTA = 0.004
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO
 
 function MapDetails({ route, navigation }) {
-    const onPressBack = () => {
-        navigation.goBack()
-    }
+    // const onPressBack = () => {
+    //     navigation.goBack()
+    // }
 
     return (
         <View style={styles.containerStyle}>
@@ -225,11 +225,11 @@ function MapDetails({ route, navigation }) {
                     description="Wetland"
                 />
             </MapView>
-            <View style={styles.backButtonView}>
+            {/* <View style={styles.backButtonViewWide}>
                 <Pressable onPress={() => onPressBack()}>
-                    <Text style={styles.backButton}>Back</Text>
+                    <Text style={styles.backButtonWide}>Back</Text>
                 </Pressable>
-            </View>
+            </View> */}
         </View>
     )
 }
@@ -259,7 +259,7 @@ const styles = {
         bottom: 0,
         // position: 'absolute',
     },
-    backButtonView: {
+    backButtonViewWide: {
         alignItems: 'center',
         border: 0,
         borderRadius: 40,
@@ -269,7 +269,7 @@ const styles = {
         marginTop: 12,
         padding: 5,
     },
-    backButton: {
+    backButtonWide: {
         color: offWhite,
         fontSize: 28,
     },
