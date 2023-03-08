@@ -6,18 +6,40 @@ import MoreDetails from '../components/MoreDetails'
 import MoreList from '../components/MoreList'
 import PrincipleFunders from '../screens/PrincipleFunders'
 import FestivalTeam from '../screens/FestivalTeam'
+import FAQ from '../screens/FAQ'
+import FAQDetail from '../screens/FAQDetail'
 
 import Partners from '../screens/Partners'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons/faArrowLeft'
 
 const MoreStack = createStackNavigator()
 const { width, height } = Dimensions.get('window')
+const offWhite = '#e2d8c6'
+const redTabBackgroundColor = '#FF5B53'
 
 function MoreScreen({ navigation }) {
     return (
         <View style={{ width, height }}>
             <MoreStack.Navigator
                 screenOptions={{
-                    headerShown: false,
+                    headerShown: true,
+                    headerTitleStyle: {
+                        color: offWhite,
+                        fontSize: 26,
+                        fontFamily: 'Poppins-Light',
+                    },
+                    headerStyle: {
+                        backgroundColor: redTabBackgroundColor,
+                    },
+                    headerBackTitleVisible: false,
+                    headerBackImage: () => (
+                        <FontAwesomeIcon
+                            icon={faArrowLeft}
+                            size={36}
+                            color={offWhite}
+                        />
+                    ),
                 }}
             >
                 <MoreStack.Screen
@@ -31,8 +53,10 @@ function MoreScreen({ navigation }) {
                 <MoreStack.Screen
                     name="MoreDetails"
                     component={MoreDetails}
-                    options={{
-                        headerTitle: 'MoreDetails',
+                    options={({ route }) => {
+                        return {
+                            headerTitle: `${route.params.moreDetails.name}`,
+                        }
                     }}
                 />
                 <MoreStack.Screen
@@ -54,6 +78,24 @@ function MoreScreen({ navigation }) {
                     component={FestivalTeam}
                     options={{
                         headerTitle: 'FestivalTeam',
+                    }}
+                />
+                <MoreStack.Screen
+                    name="FAQ"
+                    component={FAQ}
+                    options={({ route }) => {
+                        return {
+                            headerTitle: `FAQ`,
+                        }
+                    }}
+                />
+                <MoreStack.Screen
+                    name="FAQDetail"
+                    component={FAQDetail}
+                    options={({ route }) => {
+                        return {
+                            headerTitle: `${route.params.faqItem.question}`,
+                        }
                     }}
                 />
             </MoreStack.Navigator>
