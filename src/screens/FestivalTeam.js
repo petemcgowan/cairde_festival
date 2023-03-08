@@ -3,117 +3,95 @@ import {
     ScrollView,
     Text,
     Image,
-    TouchableOpacity,
     StyleSheet,
     Dimensions,
 } from 'react-native'
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons/faArrowCircleLeft'
 
 const { width } = Dimensions.get('window')
 const offWhite = '#e2d8c6'
-const greenBackgroundColor = '#1e965a'
 
-function FestivalTeam({ navigation }) {
-    const onPressBack = () => {
-        navigation.goBack()
-    }
+function FestivalTeam() {
     return (
-        <View>
-            {/* <View style={styles.backButtonView}>
-                <Pressable onPress={() => onPressBack()}>
-                    <Text style={styles.backButton}>Back</Text>
-                </Pressable>
-            </View> */}
-            <ScrollView>
-                <Text style={{ fontSize: 20 }}>Festival Team</Text>
+        <View style={styles.container}>
+            <ScrollView nestedScrollEnabled={true}>
+                <Text style={styles.titleText}>Director</Text>
 
-                <Text style={{ fontWeight: 'bold' }}>Director</Text>
-                <Text>Tara McGowan</Text>
-                <Text style={{ fontWeight: 'bold' }}>Administrator</Text>
-                <Text>Stéphanie Pawula</Text>
-                <Text style={{ fontWeight: 'bold' }}>
+                <Text style={styles.peopleText}>Tara McGowan</Text>
+                <Text style={styles.titleText}>Administrator</Text>
+                <Text style={styles.peopleText}>Stéphanie Pawula</Text>
+                <Text style={styles.titleText}>
                     Production + Technical Team
                 </Text>
-                <Text>
+                <Text style={styles.peopleText}>
                     Barry McKinney, Terry Markey, Aaron Robinson, Pete Vamos,
                     Patrick Curley
                 </Text>
 
-                <Text style={{ fontWeight: 'bold' }}>Communications</Text>
-                <Text>Bowe Communications</Text>
-                <Text style={{ fontWeight: 'bold' }}>
-                    Marketing Co-ordinator
+                <Text style={styles.titleText}>Communications</Text>
+                <Text style={styles.peopleText}>Bowe Communications</Text>
+                <Text style={styles.titleText}>Marketing Co-ordinator</Text>
+                <Text style={styles.peopleText}>Edel Doherty</Text>
+                <Text style={styles.titleText}>Sound Engineers</Text>
+                <Text style={styles.peopleText}>
+                    Dickon Whitehead, Luke Devaney, Daniel Bannon
                 </Text>
-                <Text>Edel Doherty</Text>
-                <Text style={{ fontWeight: 'bold' }}>Sound Engineers</Text>
-                <Text>Dickon Whitehead, Luke Devaney, Daniel Bannon</Text>
-                <Text style={{ fontWeight: 'bold' }}>Programme Assistant</Text>
-                <Text>Sandy Porter</Text>
+                <Text style={styles.titleText}>Programme Assistant</Text>
+                <Text style={styles.peopleText}>Sandy Porter</Text>
 
-                <Text style={{ fontWeight: 'bold' }}>
-                    Volunteer Coordinator
+                <Text style={styles.titleText}>Volunteer Coordinator</Text>
+                <Text style={styles.peopleText}>Suzanne Donnelly</Text>
+                <Text style={styles.titleText}>Cairde in the Park Design</Text>
+                <Text style={styles.peopleText}>
+                    Vanya Lambrecht Ward & Gillian Ní Chaisaide
                 </Text>
-                <Text>Suzanne Donnelly</Text>
-                <Text style={{ fontWeight: 'bold' }}>
-                    Cairde in the Park Design
-                </Text>
-                <Text>Vanya Lambrecht Ward & Gillian Ní Chaisaide</Text>
-                <Text style={{ fontWeight: 'bold' }}>
+                <Text style={styles.titleText}>
                     Cairde in the Park Production Team
                 </Text>
-                <Text>
+                <Text style={styles.peopleText}>
                     Dicky Gable, Chan Kin, Vincent Sweeney, Aaron Robinson
                 </Text>
-                <Text style={{ fontWeight: 'bold' }}>
-                    Visual Art Trail Co-ordinators{' '}
+                <Text style={styles.titleText}>
+                    Visual Art Trail Co-ordinators
                 </Text>
-                <Text>Hannah Dobson & Barry McHugh</Text>
-                <Text style={{ fontWeight: 'bold' }}>
-                    Transcendent Documents Curator{' '}
+                <Text style={styles.peopleText}>
+                    Hannah Dobson & Barry McHugh
                 </Text>
-                <Text>Yvette Monahan</Text>
-                <Text style={{ fontWeight: 'bold' }}>
-                    Cairde Visual Committee
+                <Text style={styles.titleText}>
+                    Transcendent Documents Curator
                 </Text>
-                <Text>
+                <Text style={styles.peopleText}>Yvette Monahan</Text>
+                <Text style={styles.titleText}>Cairde Visual Committee</Text>
+                <Text style={styles.peopleText}>
                     Marilin North, Cormac O’Leary, Lorna Watkins & Heidi Wickham
                 </Text>
-                <Text style={{ fontWeight: 'bold' }}>
+                <Text style={styles.titleText}>
                     Cairde Young Curators:Facilitators:
                 </Text>
-                <Text>Andy Parsons and Sinéad Sexton</Text>
-                <Text style={{ fontWeight: 'bold' }}>CYC:</Text>
-                <Text>Caoimhe Davidson, Megan Oldham, Ava Pastor</Text>
+                <Text style={styles.peopleText}>
+                    Andy Parsons and Sinéad Sexton
+                </Text>
+                <Text style={styles.titleText}>CYC:</Text>
+                <Text style={styles.peopleText}>
+                    Caoimhe Davidson, Megan Oldham, Ava Pastor
+                </Text>
 
                 <Image
                     style={styles.image}
                     source={require('../../assets/images/Cairde-Visual-Launch-8785.jpg')}
                 ></Image>
 
-                <Text style={{ fontSize: 20 }}>Board of Directors</Text>
+                <Text style={styles.titleText}>Board of Directors</Text>
 
-                <Text style={{ fontWeight: 'bold' }}>Chairperson</Text>
-                <Text>Denise Rushe</Text>
-                <Text style={{ fontWeight: 'bold' }}>Directors:</Text>
-                <Text>
+                <Text style={styles.titleText}>Chairperson</Text>
+                <Text style={styles.peopleText}>Denise Rushe</Text>
+                <Text style={styles.titleText}>Directors:</Text>
+                <Text style={styles.peopleText}>
                     Noreen Callaghan, Jennifer Donovan, Niall Henry & Marie
-                    O’Byrne{' '}
+                    O’Byrne
                 </Text>
-                <Text style={{ fontWeight: 'bold' }}>Company Secretary:</Text>
-                <Text>Midwest Corporate</Text>
+                <Text style={styles.titleText}>Company Secretary:</Text>
+                <Text style={styles.peopleText}>Midwest Corporate</Text>
             </ScrollView>
-            <TouchableOpacity
-                style={styles.touchableOpacity}
-                onPress={onPressBack}
-            >
-                <Text style={{ fontSize: 20, color: offWhite }}>Back</Text>
-                <FontAwesomeIcon
-                    icon={faArrowCircleLeft}
-                    size={48}
-                    color="green"
-                />
-            </TouchableOpacity>
         </View>
     )
 }
@@ -122,9 +100,9 @@ export default FestivalTeam
 
 const styles = StyleSheet.create({
     container: {
-        flexDirection: 'row',
-        alignItems: 'center',
         width: width,
+        flex: 1,
+        backgroundColor: '#e2d8c6',
     },
     image: {
         width: width * 0.85,
@@ -132,26 +110,19 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         margin: 20,
     },
+    titleText: {
+        fontSize: 19,
+        color: '#FC5C58', //'#FD708E',
+        fontWeight: '500',
+    },
+    peopleText: {
+        fontSize: 16,
+        color: '#333333',
+    },
     title: {
         fontSize: 18,
         fontWeight: '600',
-        // color: '#3a3a3a',
         color: offWhite,
-    },
-    backButtonView: {
-        border: 0,
-        width: '20%',
-        height: 50,
-        borderRadius: 40,
-        backgroundColor: greenBackgroundColor,
-        fontSize: 28,
-        marginTop: 5,
-        padding: 5,
-        marginBottom: 5,
-    },
-    backButton: {
-        color: offWhite,
-        fontSize: 28,
     },
     touchableOpacity: {
         position: 'absolute',
@@ -161,11 +132,5 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         right: 0,
         bottom: 180,
-        // top: height - 250,
-    },
-    floatingButton: {
-        resizeMode: 'contain',
-        width: 50,
-        height: 50,
     },
 })

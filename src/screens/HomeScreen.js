@@ -40,7 +40,7 @@ function HomeScreen() {
                 style={{
                     flex: 1,
                     backgroundColor: offWhite,
-                    fontFamily: 'Effra_Std_Lt',
+                    fontFamily: 'Poppins-Light',
                 }}
             >
                 <Image
@@ -57,12 +57,13 @@ function HomeScreen() {
                         <View style={{ width: '80%' }}>
                             <Text
                                 style={{
-                                    fontWeight: 'bold',
+                                    // fontWeight: 'bold',
                                     color: offWhite,
-                                    lineHeight: 22,
-                                    fontSize: 23,
+                                    lineHeight: 27,
+                                    fontSize: 21,
+
                                     margin: 8,
-                                    fontFamily: 'Effra',
+                                    fontFamily: 'Poppins-Medium',
                                 }}
                             >
                                 Join our community on Facebook
@@ -71,9 +72,9 @@ function HomeScreen() {
                                 style={{
                                     color: offWhite,
                                     lineHeight: 27,
-                                    fontSize: 20,
+                                    fontSize: 18,
                                     margin: 8,
-                                    fontFamily: 'Effra',
+                                    fontFamily: 'Poppins-ExtraLight',
                                 }}
                             >
                                 Like our Facebook page and keep up with all the
@@ -110,12 +111,11 @@ function HomeScreen() {
                         <View style={{ width: '80%' }}>
                             <Text
                                 style={{
-                                    fontWeight: 'bold',
                                     color: offWhite,
-                                    lineHeight: 22,
-                                    fontSize: 23,
+                                    lineHeight: 27,
+                                    fontSize: 21,
                                     margin: 12,
-                                    fontFamily: 'Effra',
+                                    fontFamily: 'Poppins-Medium',
                                 }}
                             >
                                 Follow us on Instagram
@@ -124,9 +124,9 @@ function HomeScreen() {
                                 style={{
                                     color: offWhite,
                                     lineHeight: 27,
-                                    fontSize: 20,
+                                    fontSize: 18,
                                     margin: 12,
-                                    fontFamily: 'Effra',
+                                    fontFamily: 'Poppins-ExtraLight',
                                 }}
                             >
                                 Follow us on Instagram and don't miss out on any
@@ -163,12 +163,11 @@ function HomeScreen() {
                         <View style={{ width: '80%' }}>
                             <Text
                                 style={{
-                                    fontWeight: 'bold',
                                     color: offWhite,
-                                    lineHeight: 22,
-                                    fontSize: 23,
+                                    lineHeight: 27,
+                                    fontSize: 21,
                                     margin: 10,
-                                    fontFamily: 'Effra',
+                                    fontFamily: 'Poppins-Medium',
                                 }}
                             >
                                 Explore our Youtube channel
@@ -177,9 +176,9 @@ function HomeScreen() {
                                 style={{
                                     color: offWhite,
                                     lineHeight: 27,
-                                    fontSize: 20,
+                                    fontSize: 18,
                                     margin: 10,
-                                    fontFamily: 'Effra',
+                                    fontFamily: 'Poppins-ExtraLight',
                                 }}
                             >
                                 We have a lot of fun stuff lined up for you,
@@ -250,14 +249,10 @@ function HomeScreen() {
 const styles = StyleSheet.create({
     pageContainer: {
         backgroundColor: offWhite,
-        // color: '#FFF',
     },
     paragraph: {
-        // lineHeight: 21,
-        fontFamily: 'Effra',
-        // fontFamily: 'Effra Light',
-        fontSize: 21,
-        // fontWeight: '200',
+        fontFamily: 'Poppins-Regular',
+        fontSize: 18,
         color: '#4f4f4f',
         marginBottom: 12,
     },
