@@ -3,6 +3,7 @@ import {
     StyleSheet,
     Text,
     View,
+    ScrollView,
     FlatList,
     TouchableOpacity,
     Dimensions,
@@ -20,15 +21,6 @@ import { faDonate } from '@fortawesome/free-solid-svg-icons/faDonate'
 import { faBook } from '@fortawesome/free-solid-svg-icons/faBook'
 import { faCircleDollarToSlot } from '@fortawesome/free-solid-svg-icons/faCircleDollarToSlot'
 
-// left side of non-link items
-// info icon (FAQ AND "General Information")
-// news icon (Media)
-//  an eco or leaf symbol (Sustainability)
-//  Dollar!  (Principle Funders)
-//  Handshake (Partners)
-//  a person's head or "team of people" (Festival team)
-//  ()
-
 const { width } = Dimensions.get('window')
 const offWhite = '#e2d8c6'
 
@@ -39,7 +31,7 @@ const generalStyleData = [
         name: 'FAQ',
         title: 'FAQ',
         description: 'FAQDescription',
-        component: null,
+        component: 'FAQ',
         link: null,
         linkTree: false,
         icon: faInfo,
@@ -47,24 +39,45 @@ const generalStyleData = [
             {
                 id: 'Q1',
                 question: 'Where can I find more information about tickets?',
-                answer: `Please visit our <How to Book>TODO LINK page for all information regarding purchasing and collecting tickets. `,
+                answer: `Please visit our page below for all information regarding purchasing and collecting tickets. `,
+                links: [
+                    {
+                        id: 'L1',
+                        linkName: 'Booking page',
+                        linkDestination:
+                            'https://ticketsolve.queue-it.net/?c=ticketsolve&e=cairdrefestival&t=https%3A%2F%2Fcairdefestival.ticketsolve.com%2Fshows&cid=en-GB',
+                    },
+                ],
             },
             {
                 id: 'Q2',
                 question: 'Where can I purchase bus tickets?',
-                answer: `Bus Éireann’s Expressway is delighted to be official travel partner for All Together Now again in 2022. Regular services will be available from Waterford Bus Station to Curraghmore House each day from Friday 29th July to Monday 1st August. In addition to this, direct non-stop services from Dublin and Cork city centres will operate to the festival on Friday 29th July with return journeys on Monday 1st August. Bus tickets for all services will go on sale in June and early bird discounts will apply.
+                answer: `Bus Éireann’s Expressway is delighted to be official travel partner for Cairde Festival again in 2022.
 
-        Bus tickets available here - https://www.expressway.ie/service-news/all-together-now-2022`,
+Regular services will be available from Waterford Bus Station to Curraghmore House each day from Friday 29th July to Monday 1st August. In addition to this, direct non-stop services from Dublin and Cork city centres will operate to the festival on Friday 29th July with return journeys on Monday 1st August.
+
+Bus tickets for all services will go on sale in June and early bird discounts will apply. `,
+                links: [
+                    {
+                        id: 'L1',
+                        linkName: 'Bus tickets available here',
+                        linkDestination: 'https://www.expressway.ie',
+                    },
+                ],
             },
             {
                 id: 'Q3',
                 question: 'Do you have any free events?',
-                answer: `The Festival is proud to offer many events free of charge. This includes all street spectacles and visual art galleries. Free events are noted in the Festival programme.`,
+                answer: `The Festival is proud to offer many events free of charge. This includes all street spectacles and visual art galleries.
+
+Free events are noted in the Festival programme.`,
             },
             {
                 id: 'Q4',
                 question: 'Do you have any family-friendly events?',
-                answer: `Cairde includes various family-friendly offerings from year to year in genres ranging from street spectacle to visual arts and from theatre to First Thought Talks. Please refer to our Family Friendly page for more information.`,
+                answer: `Cairde includes various family-friendly offerings from year to year in genres ranging from street spectacle to visual arts and from theatre to First Thought Talks.
+
+Please refer to our Family Friendly page for more information.`,
             },
             {
                 id: 'Q5',
@@ -88,20 +101,30 @@ const generalStyleData = [
                 question: 'Can tickets be refunded or exchanged?',
                 answer: `We regret that 2022 tickets cannot be exchanged or refunded after purchase.
 
-        Only buy your tickets from authorized outlets only; do not seek to gain admission using a counterfeit ticket.
+Only buy your tickets from authorized outlets only; do not seek to gain admission using a counterfeit ticket.
 
-        -
+                -
 
-        For customers who purchased tickets for  ATN 2020 or 2021 online, refunds are available for those unable to attend the new dates in 2022.
+For customers who purchased tickets for  Cairde 2020 or 2021 online, refunds are available for those unable to attend the new dates in 2022.
 
-        If you are no longer able to attend the new dates, please log into ‘My Account’ on Ticketmaster.ie for fan support. Need help -https://help.ticketmaster.ie/hc/en-ie/articles/360019542978-How-to-Contact-us
+If you are no longer able to attend the new dates, please log into ‘My Account’ on Ticketmaster.ie for fan support. Need help -(link below))
 
-        If you purchased your 2020 / 2021 ticket from a Ticketmaster physical outlet and are unable to attend the new dates, please email us at hello@alltogethernow.ie    `,
+If you purchased your 2020 / 2021 ticket from a Ticketmaster physical outlet and are unable to attend the new dates, please email us at hello@alltogethernow.ie    `,
+                links: [
+                    {
+                        id: 'L1',
+                        linkName: 'TicketMaster Help',
+                        linkDestination:
+                            'https://help.ticketmaster.ie/hc/en-ie/articles/360019542978-How-to-Contact-us',
+                    },
+                ],
             },
             {
                 id: 'Q9',
                 question: 'Are all venues fully accessible?',
-                answer: `The majority of Cairde venues are fully accessible, however a few do have limited access. Please visit our Accessibility page to learn more.`,
+                answer: `The majority of Cairde venues are fully accessible, however a few do have limited access.
+
+Please visit our Accessibility page to learn more.`,
             },
             {
                 id: 'Q10',
@@ -113,20 +136,37 @@ const generalStyleData = [
                 id: 'Q11',
                 question:
                     'Where can I submit my work for consideration in the Festival?',
-                answer: `The deadline for Festival submissions is usually at the end of the previous calendar year. Please check our Take Part page for updates.`,
+                answer: `The deadline for Festival submissions is usually at the end of the previous calendar year.
+
+Please check our Take Part page for updates.`,
             },
             {
                 id: 'Q12',
                 question:
                     'Where can I buy Festival merchandise and gift vouchers?',
-                answer: `Official merchandise is available for purchase during the Festival at the Festival Hub (Market Street) and at select shows, as well as on our <online merchandise store> TODO LINK. Gift vouchers <are available here in €25, €50, €100 and €250 increments.> TODO LINK`,
+                answer: `Official merchandise is available for purchase during the Festival at the Festival Hub (Market Street) and at select shows, as well as on our <online merchandise store (link below).
+
+Gift vouchers <are available here in €25, €50, €100 and €250 increments (link below).`,
+                links: [
+                    {
+                        id: 'L1',
+                        linkName: 'Cairde Merchandise',
+                        linkDestination: 'https://www.cairdefestival.com',
+                    },
+                    {
+                        id: 'L2',
+                        linkName: 'Cairde Support',
+                        linkDestination:
+                            'https://www.cairdefestival.com/support-us',
+                    },
+                ],
             },
         ],
     },
     {
         id: '2',
         name: 'Media',
-        title: 'Travel',
+        title: 'Media',
         description: ``,
         component: null,
         link: null,
@@ -211,55 +251,69 @@ const generalStyleData = [
             {
                 id: 'S1',
                 question: 'Sustainability Policy',
-                answer: `When we launched All Together Now in 2018, we wanted to take the opportunity to create a sustainable and environmentally friendly festival where we could set our own standards. With sustainability at the core of our ethos, we are passionate about creating and promoting the message as best we can.
+                answer: ` When we launched All Together Now in 2018, we wanted to take the opportunity to create a sustainable and environmentally friendly festival where we could set our own standards.
 
-        We are firm believers in making as much effort on our part to leave as small a footprint as possible, of both the carbon and physical nature, on our festival site. We recognise our responsibility and duty of care we have, to not only the global environment, but to the Curraghmore House the stunning venue we are lucky to call home. We operate a Leave No Trace policy to ensure we leave the beautiful estate as we found it and safe for the local wildlife.
+  With sustainability at the core of our ethos, we are passionate about creating and promoting the message as best we can.
 
-        We are committed to reducing our waste on site and are actively exploring ways we can introduce renewable energy solutions and improve on responsible consumption and production throughout. We endeavour to do our best, but there is always more we can do. To help us in our effort towards becoming a more sustainable festival, we’ve put together some ways you can help us reduce our impact on the land together.
+  We are firm believers in making as much effort on our part to leave as small a footprint as possible, of both the carbon and physical nature, on our festival site. We recognise our responsibility and duty of care we have, to not only the global environment, but to the Curraghmore House the stunning venue we are lucky to call home.
 
-        We can’t wait to welcome you back to the gorgeous Curraghmore Estate this year – thank you for your support. `,
+  We operate a Leave No Trace policy to ensure we leave the beautiful estate as we found it and safe for the local wildlife.
+
+  We are committed to reducing our waste on site and are actively exploring ways we can introduce renewable energy solutions and improve on responsible consumption and production throughout. We endeavour to do our best, but there is always more we can do.
+
+  To help us in our effort towards becoming a more sustainable festival, we’ve put together some ways you can help us reduce our impact on the land together.
+
+  We can’t wait to welcome you back to the gorgeous Curraghmore Estate this year – thank you for your support. `,
             },
             {
                 id: 'S2',
                 question: 'What You Can Do',
                 answer: `{'\u2022'}Carpool or use Public Transport – How are you travelling to the festival? Can you carpool or take public transport?
 
-        {'\u2022'}#LEAVENOTRACE – Whatever you bring in, please take it out. Bring your tent and camping equipment home. If it can’t be brought home, please dispose of it correctly in the appropriate waste bins. We ask that you please leave your camping spot as you found it.
+  \u2022 #LEAVENOTRACE – Whatever you bring in, please take it out. Bring your tent and camping equipment home. If it can’t be brought home, please dispose of it correctly in the appropriate waste bins. We ask that you please leave your camping spot as you found it.
 
-        {'\u2022'}Sort your campsite waste – Bring your own bins bags and separate your campsite waste as you go. Once your bag is full, you can dispose of it in the correct recycling bins provided.
+  \u2022 Sort your campsite waste – Bring your own bins bags and separate your campsite waste as you go. Once your bag is full, you can dispose of it in the correct recycling bins provided.
 
-        {'\u2022'}Don’t own a tent? - Opt in for one of our pre-pitched camping options, from general campsites to boutique living, we’ve got loads to choose from!
+  \u2022 Don’t own a tent? - Opt in for one of our pre-pitched camping options, from general campsites to boutique living, we’ve got loads to choose from!
 
-        {'\u2022'}Bring your reusable water bottle – We’ve got water stations in the campsites and arena where you can refill your water bottle for free!
+  \u2022 Bring your reusable water bottle – We’ve got water stations in the campsites and arena where you can refill your water bottle for free!
 
-        {'\u2022'}Use the bins correctly – Our bins will be signposted, so we please ask you to think before you throw out. If you see waste on the ground, lead by example by picking it up.
+  \u2022 Use the bins correctly – Our bins will be signposted, so we please ask you to think before you throw out. If you see waste on the ground, lead by example by picking it up.
 
-        {'\u2022'}No IF’S & (Cigarette) BUTTS – Please do your best to consider the local flora and fauna and don’t drop your cigarette butts on the ground. They can leach toxic chemicals into the soil and local water supplies, so please use the bins provided.
+  \u2022 No IF’S & (Cigarette) BUTTS – Please do your best to consider the local flora and fauna and don’t drop your cigarette butts on the ground. They can leach toxic chemicals into the soil and local water supplies, so please use the bins provided.
 
-        {'\u2022'}Use the toilets provided – please don’t urinate on the ground.
+  \u2022 Use the toilets provided – please don’t urinate on the ground.
 
 
 
-        Reduce the amount you bring and pack responsibly– Try to avoid bringing single-use plastic items. Bring a reusable water bottle and coffee cup. Use bio-degradable wet wipes and glitter (if you must). Create fun festival outfits from clothes you already have in your wardrobe. Get creative!
+  Reduce the amount you bring and pack responsibly– Try to avoid bringing single-use plastic items. Bring a reusable water bottle and coffee cup. Use bio-degradable wet wipes and glitter (if you must).
 
-        Love the land, respect your neighbours, and have fun!  `,
+  Create fun festival outfits from clothes you already have in your wardrobe. Get creative!
+
+  Love the land, respect your neighbours, and have fun!  `,
             },
             {
                 id: 'S3',
                 question: 'What We Are Doing',
-                answer: `{'\u2022'}Water – This year we are installing more free water drinking stations throughout the festival in the campsites, arenas and backstage. We highly encourage you and our staff to bring your own reusable water bottle to the festival.
+                answer: `\u2022 Water – This year we are installing more free water drinking stations throughout the festival in the campsites, arenas and backstage. We highly encourage you and our staff to bring your own reusable water bottle to the festival.
 
-        {'\u2022'}Single-Use Plastic Bottles - We are doing our best to minimise the use of single-use plastics on-site. Single-use plastic bottles will not be available for sale at any of our vendors or bars. No single-use plastic bottles are provided in any backstage area either. Instead, we offer a canned water & soft drinks alternative, or the option to refill at our free water stations.
+  \u2022 Single-Use Plastic Bottles - We are doing our best to minimise the use of single-use plastics on-site. Single-use plastic bottles will not be available for sale at any of our vendors or bars.
 
-        {'\u2022'}Compostable Serveware – We strictly enforce that all food vendors and bars only use fully compostable serveware. This includes coffee & pint cups, plates, utensils etc. This policy has been in place since our inaugural event in 2018.
+  No single-use plastic bottles are provided in any backstage area either. Instead, we offer a canned water & soft drinks alternative, or the option to refill at our free water stations.
 
-        {'\u2022'}Food Vendors - Most of our food venders offer a vegan & vegetarian option. Check out our food line-up closer to the festival to see who’s on-site.
+  \u2022 Compostable Serveware – We strictly enforce that all food vendors and bars only use fully compostable serveware. This includes coffee & pint cups, plates, utensils etc. This policy has been in place since our inaugural event in 2018.
 
-        {'\u2022'}Fuel Consumption & Energy Monitoring – We are auditing our energy usage onsite this year in collaboration with sustainability consultants, Native Events. Results will allow for us to plan more efficiently and reduce our consumption in coming years.
+  \u2022 Food Vendors - Most of our food venders offer a vegan & vegetarian option. Check out our food line-up closer to the festival to see who’s on-site.
 
-        {'\u2022'}Waste Management – Our festival is zero waste to landfill. Our bins are clearly signposted, helping our audiences and staff to separate their waste correctly, to ensure maximum recycling and recovery downstream. We are working on reducing the festival’s outputs as much as possible and to do so, are conducting an audit of our waste outputs this year.
+  \u2022 Fuel Consumption & Energy Monitoring – We are auditing our energy usage onsite this year in collaboration with sustainability consultants, Native Events. Results will allow for us to plan more efficiently and reduce our consumption in coming years.
 
-        {'\u2022'}Public Transport - We partner with Bus Eireann to reduce the traffic volume and encourage the use of public transport. Bus Eireann will be providing return bus services from Dublin, Cork and Waterford. Bus Eireann are also providing a shuttle service from their Waterford Bus terminal, across the road from Waterford Plunkett Station. Those wishing to travel via Irish Rail can do so using this service. Bus times and tickets will be available at a later date. If public transport isn’t an option for you, we highly encourage carpooling. `,
+  \u2022 Waste Management – Our festival is zero waste to landfill. Our bins are clearly signposted, helping our audiences and staff to separate their waste correctly, to ensure maximum recycling and recovery downstream.
+
+  We are working on reducing the festival’s outputs as much as possible and to do so, are conducting an audit of our waste outputs this year.
+
+  \u2022 Public Transport - We partner with Bus Eireann to reduce the traffic volume and encourage the use of public transport. Bus Eireann will be providing return bus services from Dublin, Cork and Waterford. Bus Eireann are also providing a shuttle service from their Waterford Bus terminal, across the road from Waterford Plunkett Station.
+
+  Those wishing to travel via Irish Rail can do so using this service. Bus times and tickets will be available at a later date. If public transport isn’t an option for you, we highly encourage carpooling. `,
             },
         ],
     },
@@ -377,12 +431,15 @@ const MoreList = ({ navigation }) => {
                 <View style={{ backgroundColor: offWhite }}>
                     <TouchableOpacity
                         onPress={onPressGeneralItem}
-                        style={[styles.container, { margin: 10 }]}
+                        style={[styles.container, { margin: 9 }]}
                     >
                         <View
                             style={[
                                 styles.content,
-                                { flexDirection: 'row', alignItems: 'center' },
+                                {
+                                    flexDirection: 'row',
+                                    alignItems: 'center',
+                                },
                             ]}
                         >
                             <View
@@ -400,7 +457,17 @@ const MoreList = ({ navigation }) => {
                                     color="black"
                                 />
                             </View>
-                            <Text style={[styles.title, { width: '70%' }]}>
+                            <Text
+                                style={[
+                                    styles.title,
+                                    {
+                                        width: '70%',
+                                        fontFamily: 'Poppins-Regular',
+                                        fontSize: 20,
+                                        color: '#333333',
+                                    },
+                                ]}
+                            >
                                 {item.name}
                             </Text>
                             <FontAwesomeIcon
@@ -412,8 +479,6 @@ const MoreList = ({ navigation }) => {
                         </View>
                     </TouchableOpacity>
                 </View>
-                <Separator />
-
                 <Separator />
             </View>
         )
@@ -448,7 +513,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 18,
-        fontWeight: '600',
+        // fontWeight: '600',
         // color: offWhite,
     },
     content: {
@@ -460,8 +525,8 @@ const styles = StyleSheet.create({
         // color: offWhite,
     },
     separator: {
-        backgroundColor: 'green',
-        height: 2,
+        backgroundColor: 'rgba(51, 51, 51, 0.3)',
+        height: 1,
     },
     right: {
         alignItems: 'flex-end',

@@ -8,29 +8,19 @@ import {
     Dimensions,
 } from 'react-native'
 
-const offWhite = '#e2d8c6'
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons/faArrowCircleLeft'
-
-export const PinkSeparator = () => <View style={styles.pinkSeparator} />
-export const GreenSeparator = () => <View style={styles.greenSeparator} />
-
-const greenBackgroundColor = '#1e965a'
+export const Separator = () => <View style={styles.separator} />
 const { height } = Dimensions.get('window')
 
-function MoreDetails({ route, navigation }) {
-    const onPressBack = () => {
-        navigation.goBack()
-    }
+const offWhite = '#e2d8c6'
 
+function MoreDetails({ route }) {
     return (
         <View style={styles.container}>
-            {/* <View style={styles.backButtonView}>
-                <Pressable onPress={() => onPressBack()}>
-                    <Text style={styles.backButton}>Back</Text>
-                </Pressable>
-            </View> */}
-            <ScrollView style={{ backgroundColor: offWhite }} key={{}}>
+            <ScrollView
+                style={{ backgroundColor: offWhite }}
+                key={{}}
+                nestedScrollEnabled={true}
+            >
                 {route.params.moreDetails.qaList.map((qaItem) => {
                     return route.params.moreDetails.linkTree ? (
                         <View key={qaItem.id}>
@@ -39,10 +29,19 @@ function MoreDetails({ route, navigation }) {
                                     await Linking.canOpenURL(qaItem.answer)
                                     Linking.openURL(qaItem.answer)
                                 }}
-                                style={[styles.container, { margin: 10 }]}
+                                style={[{ margin: 10 }]}
                             >
-                                <Text>{qaItem.question}</Text>
-                                <PinkSeparator />
+                                <Text
+                                    style={{
+                                        color: 'darkgreen',
+                                        fontSize: 18,
+                                        textDecorationLine: 'underline',
+                                        fontFamily: 'Poppins-Regular',
+                                    }}
+                                >
+                                    {qaItem.question}
+                                </Text>
+                                <Separator />
                             </TouchableOpacity>
                         </View>
                     ) : (
@@ -50,36 +49,25 @@ function MoreDetails({ route, navigation }) {
                             <Text
                                 style={[
                                     styles.questionTextStyle,
-                                    { fontSize: 18 },
+                                    { fontSize: 18, color: '#333333' },
                                 ]}
                             >
                                 {qaItem.question}
                             </Text>
-                            <PinkSeparator />
+                            <Separator />
                             <Text
                                 style={[
-                                    styles.questionTextStyle,
-                                    { fontSize: 16 },
+                                    styles.answerTextStyle,
+                                    { fontSize: 17, color: '#333333' },
                                 ]}
                             >
                                 {qaItem.answer}
                             </Text>
-                            <GreenSeparator />
+                            <Separator />
                         </View>
                     )
                 })}
             </ScrollView>
-            <TouchableOpacity
-                style={styles.touchableOpacity}
-                onPress={onPressBack}
-            >
-                <Text style={{ fontSize: 20, color: offWhite }}>Back</Text>
-                <FontAwesomeIcon
-                    icon={faArrowCircleLeft}
-                    size={48}
-                    color="green"
-                />
-            </TouchableOpacity>
         </View>
     )
 }
@@ -90,51 +78,23 @@ const styles = StyleSheet.create({
     container: {
         justifyContent: 'center',
         flex: 1,
-        margin: 10,
+        margin: 1,
+        backgroundColor: '#e2d8c6',
+        marginBottom: 75,
     },
     greenSeparator: {
         backgroundColor: 'green',
         height: 1,
     },
-    pinkSeparator: {
-        backgroundColor: 'brown',
+    separator: {
+        backgroundColor: 'rgba(51, 51, 51, 0.2)',
         height: 1,
     },
     questionTextStyle: {
-        fontFamily: 'Effra',
+        fontFamily: 'Poppins-ExtraLight',
     },
     answerTextStyle: {
-        fontFamily: 'Effra',
-    },
-    backButtonView: {
-        // bottom: 100,
-        // left: 0,
-        // marginBottom: 100,
-        // alignItems: 'center',
-        border: 0,
-        width: '20%',
-        height: 50,
-        borderRadius: 40,
-        // width: 66,
-        // height: 66,
-        backgroundColor: greenBackgroundColor,
-        fontSize: 28,
-        // margin: 5,
-        marginTop: 5,
-        padding: 5,
-        // flex: 1,
-        // justifyContent: 'flex-end',
-        marginBottom: 5,
-    },
-    backButton: {
-        // bottom: 100,
-        // left: 0,
-        // marginBottom: 100,
-        // width: 66,
-        // height: 66,
-        // position: 'absolute',
-        color: offWhite,
-        fontSize: 28,
+        fontFamily: 'Poppins-Light',
     },
     touchableOpacity: {
         position: 'absolute',
@@ -143,9 +103,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         right: 0,
-        // bottom: 180,
-        bottom: height * 0.1,
-        // top: height - 250,
+        bottom: height * 0.21,
     },
     floatingButton: {
         resizeMode: 'contain',
