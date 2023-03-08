@@ -64,3 +64,4 @@ buck-out/
 /vendor/bundle/
 design/design ideas
 release/appMockup/Cairde Festival App Mockup with images.mockup
+android/app/release/app-release.aab

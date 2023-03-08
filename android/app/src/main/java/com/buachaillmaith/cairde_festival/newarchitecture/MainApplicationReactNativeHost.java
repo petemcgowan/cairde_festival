@@ -1,4 +1,4 @@
-package com.cairde_festival.newarchitecture;
+package com.buachaillmaith.cairde_festival.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.cairde_festival.BuildConfig;
-import com.cairde_festival.newarchitecture.components.MainComponentsRegistry;
-import com.cairde_festival.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.buachaillmaith.cairde_festival.BuildConfig;
+import com.buachaillmaith.cairde_festival.newarchitecture.components.MainComponentsRegistry;
+import com.buachaillmaith.cairde_festival.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 

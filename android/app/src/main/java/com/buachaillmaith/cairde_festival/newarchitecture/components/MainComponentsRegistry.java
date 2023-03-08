@@ -1,4 +1,4 @@
-package com.cairde_festival.newarchitecture.components;
+package com.buachaillmaith.cairde_festival.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;

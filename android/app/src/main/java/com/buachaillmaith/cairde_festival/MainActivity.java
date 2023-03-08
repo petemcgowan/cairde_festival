@@ -1,4 +1,4 @@
-package com.cairde_festival;
+package com.buachaillmaith.cairde_festival;
 
 // react-native-splash-screen and bottom tabs navigator
 import android.os.Bundle;

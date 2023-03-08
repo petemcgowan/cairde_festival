@@ -1,4 +1,4 @@
-package com.cairde_festival.newarchitecture.modules;
+package com.buachaillmaith.cairde_festival.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;
